@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>信息管理系统</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+
+<!-- 登录界面 -->
+<div id="loginPage" class="login-page">
+
+  <div class="login-box">
+    <div class="db-title">
+      信息管理系统
+    </div>
+
+    <div class="db-sub">
+      ACCESS DATABASE STYLE
+    </div>
+
+    <input id="loginCode" type="password" placeholder="请输入数字登录码">
+
+    <button onclick="login()">
+      登录系统
+    </button>
+  </div>
+
+</div>
+
+<!-- 主系统 -->
+<div id="mainPage" class="main-page hide">
+
+  <div class="topbar">
+
+    <div class="logo">
+      信息管理系统
+    </div>
+
+    <button class="more-btn" onclick="toggleMenu()">
+      更多操作
+    </button>
+
+  </div>
+
+  <!-- 百叶窗菜单 -->
+  <div id="menuPanel" class="menu-panel">
+
+    <button onclick="openAdd()">
+      添加信息
+    </button>
+
+    <button onclick="exportData()">
+      导出信息
+    </button>
+
+  </div>
+
+  <!-- 数据表 -->
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>名字</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>陪玩游戏</th>
+          <th>游戏段位</th>
+          <th>是否上学</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody id="tableBody">
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+<!-- 添加弹窗 -->
+<div id="addModal" class="modal hide">
+
+  <div class="modal-box">
+
+    <h2>添加信息</h2>
+
+    <input id="name" placeholder="名字">
+    <input id="age" placeholder="年龄">
+    <input id="gender" placeholder="性别">
+    <input id="game" placeholder="陪玩游戏">
+    <input id="rank" placeholder="游戏段位">
+    <input id="school" placeholder="是否上学">
+
+    <button onclick="addData()">
+      保存信息
+    </button>
+
+  </div>
+
+</div>
+
+<script src="supabase.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
